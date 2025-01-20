@@ -168,10 +168,19 @@ echo "Build Mode: [$build_mode]"
 echo "Build Tag: [$tag]"
 echo "Proxy: [$proxy]"
 
+# docker build . \
+#     --build-arg BASE_IMAGE=${selected_image_tag} \
+#     --build-arg BUILD_MODE=${build_mode} \
+#     --build-arg IS_VANILLA=${is_vanilla} \
+#     --build-arg USE_APT_PROXY=${proxy} \
+#     --build-arg INTEGER_UPSAMPLING_SUPPORT=${integer_upsampling_support} \
+#     -t giof71/mpd-alsa:$tag
+
 docker build . \
+    --platform linux/amd64/v8 \
     --build-arg BASE_IMAGE=${selected_image_tag} \
     --build-arg BUILD_MODE=${build_mode} \
     --build-arg IS_VANILLA=${is_vanilla} \
     --build-arg USE_APT_PROXY=${proxy} \
     --build-arg INTEGER_UPSAMPLING_SUPPORT=${integer_upsampling_support} \
-    -t giof71/mpd-alsa:$tag
+    -t registry.cn-hangzhou.aliyuncs.com/recttech/mpd-server:amd64-v8

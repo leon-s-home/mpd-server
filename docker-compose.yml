@@ -1,0 +1,25 @@
+---
+version: "3"
+
+services:
+  mpd:
+    image: registry.cn-hangzhou.aliyuncs.com/recttech/mpd-alsa:ubuntu-amd64-v8
+    container_name: mpd
+    hostname: mpd
+    restart: unless-stopped
+    ports:
+      - 6600:6600
+    volumes:
+      - /home/leon/workspace/mpd/music:/music:ro
+      - /home/leon/workspace/mpd/playlists:/var/lib/mpd/playlists
+      - /home/leon/workspace/mpd/db:/var/lib/mpd/database
+      - /run/user/1000/pulse:/run/user/1000/pulse
+      - /home/leon/workspace/mpd/log:/log
+    devices:
+      - /dev/snd:/dev/snd
+    environment:
+      - MPD_LOG_LEVEL=verbose
+      - USER_MODE=Y
+      - OUTPUT_MODE=pulse
+      - PULSE_AUDIO_OUTPUT_CREATE=yes
+      - PULSE_AUDIO_OUTPUT_ENABLED=yes
