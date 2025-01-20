@@ -3,9 +3,9 @@ version: "3"
 
 services:
   mpd:
-    image: registry.cn-hangzhou.aliyuncs.com/recttech/mpd-alsa:ubuntu-amd64-v8
-    container_name: mpd
-    hostname: mpd
+    image: registry.cn-hangzhou.aliyuncs.com/recttech/mpd-server:amd64-v8
+    container_name: mpd-server
+    hostname: mpd-sevrer
     restart: unless-stopped
     ports:
       - 6600:6600
