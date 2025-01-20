@@ -4,6 +4,7 @@ version: "3"
 services:
   mpd:
     image: registry.cn-hangzhou.aliyuncs.com/recttech/mpd-server:amd64-v8
+    pull_policy: always
     container_name: mpd-server
     hostname: mpd-sevrer
     restart: unless-stopped
@@ -13,8 +14,8 @@ services:
       - /home/leon/workspace/mpd/music:/music:ro
       - /home/leon/workspace/mpd/playlists:/var/lib/mpd/playlists
       - /home/leon/workspace/mpd/db:/var/lib/mpd/database
-      - /run/user/1000/pulse:/run/user/1000/pulse
       - /home/leon/workspace/mpd/log:/log
+      - /run/user/1000/pulse:/run/user/1000/pulse
     devices:
       - /dev/snd:/dev/snd
     environment:
