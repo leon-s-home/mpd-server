@@ -183,4 +183,4 @@ docker build . \
     --build-arg IS_VANILLA=${is_vanilla} \
     --build-arg USE_APT_PROXY=${proxy} \
     --build-arg INTEGER_UPSAMPLING_SUPPORT=${integer_upsampling_support} \
-    -t registry.cn-hangzhou.aliyuncs.com/recttech/mpd-server:amd64-v8
+    -t registry.cn-hangzhou.aliyuncs.com/leonhome/mpd-server:amd64-v8

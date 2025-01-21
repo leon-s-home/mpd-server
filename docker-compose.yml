@@ -3,7 +3,7 @@ version: "3"
 
 services:
   mpd:
-    image: registry.cn-hangzhou.aliyuncs.com/recttech/mpd-server:amd64-v8
+    image: registry.cn-hangzhou.aliyuncs.com/leonhome/mpd-server:amd64-v8
     pull_policy: always
     container_name: mpd-server
     hostname: mpd-sevrer
